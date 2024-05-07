@@ -15,24 +15,25 @@ export default function SelectedContact({
         );
         const result = await response.json();
         setContact(result);
+        console.log(result)
       } catch (error) {
         console.error(error);
       }
     }
     fetchSelectedContact();
-  }, []);
+  }, [selectedContactId]);
   console.log("Selected Contact: ", contact);
 
   return (
     <>
     <div>selected contact</div>
-      {/* <p>Name: {contact.name}</p>
-      <p>Username: {contact.username}</p>
-      <p>Email: {contact.email}</p>
-      <p>Address: {contact.address.street}</p>
-      <p>Phone: {contact.name}</p>
-      <p>Website: {contact.website}</p>
-      <p>Company: {contact.company.name}</p> */}
+      <p>Name: {contact?.name}</p>
+      <p>Username: {contact?.username}</p>
+      <p>Email: {contact?.email}</p>
+      <p>Address: {contact?.address.street}</p>
+      <p>Phone: {contact?.name}</p>
+      <p>Website: {contact?.website}</p>
+      <p>Company: {contact?.company.name}</p>
       <button onClick={()=>{setSelectedContactId(null)}}>Return to List</button>
     </>
   );
